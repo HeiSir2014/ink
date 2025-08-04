@@ -68,6 +68,8 @@ If you encounter issues when using bundling tools (like Webpack, Rollup, esbuild
 
 ### 安装方法 / Installation
 
+*** IMPORTANT ***
+
 ```sh
 npm install ink@npm:@heisir/ink react
 ```
