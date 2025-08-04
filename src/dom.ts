@@ -1,4 +1,5 @@
-import Yoga, {type Node as YogaNode} from 'yoga-layout';
+import type { Node as YogaNode } from './yoga-proxy.js';
+import Yoga from './yoga-proxy.js';
 import measureText from './measure-text.js';
 import {type Styles} from './styles.js';
 import wrapText from './wrap-text.js';

@@ -4,7 +4,8 @@ import {
 	DefaultEventPriority,
 	NoEventPriority,
 } from 'react-reconciler/constants.js';
-import Yoga, {type Node as YogaNode} from 'yoga-layout';
+import type { Node as YogaNode } from './yoga-proxy.js';
+import Yoga from './yoga-proxy.js';
 import {createContext} from 'react';
 import {
 	createTextNode,
@@ -27,6 +28,7 @@ import {type OutputTransformer} from './render-node-to-output.js';
 // accidentally breaking other third-party code.
 // See https://github.com/vadimdemedes/ink/issues/384
 if (process.env['DEV'] === 'true') {
+	(async () => {
 	try {
 		await import('./devtools.js');
 	} catch (error: any) {
@@ -46,6 +48,7 @@ $ npm install --save-dev react-devtools-core
 			throw error;
 		}
 	}
+	})();
 }
 
 type AnyObject = Record<string, unknown>;
