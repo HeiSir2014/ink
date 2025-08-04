@@ -1,6 +1,6 @@
 {
-	"name": "ink",
-	"version": "6.1.0",
+	"name": "@heisir/ink",
+	"version": "6.1.2",
 	"description": "React for CLI",
 	"license": "MIT",
 	"repository": "vadimdemedes/ink",
@@ -40,7 +40,11 @@
 		"print",
 		"render",
 		"colors",
-		"text"
+		"text",
+		"esbuild",
+		"rollup",
+		"commonjs",
+		"ink"
 	],
 	"dependencies": {
 		"@alcalzone/ansi-tokenize": "^0.1.3",

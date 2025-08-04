@@ -38,33 +38,59 @@ Only Ink's methods will be documented in this readme.
 
 ## Install
 
+*** IMPORTANT ***
+
 ```sh
-npm install ink react
+npm install ink@npm:@heisir/ink react
+```
+
+add `overrides` to your project package.json
+
+```json
+{
+	...
+	"dependencies": {
+		"ink": "npm:@heisir/ink@^6.1.2",
+	},
+	"overrides":{
+		"ink": "npm:@heisir/ink@^6.1.2"
+	}
+}
 ```
 
 ## Usage
 
+*** IMPORTANT ***
+> await loadGlobalYoga();
+
 ```jsx
 import React, {useState, useEffect} from 'react';
-import {render, Text} from 'ink';
+import {render, Text, loadGlobalYoga} from 'ink';
 
-const Counter = () => {
-	const [counter, setCounter] = useState(0);
+async function main() {
+	// to fix yoga top-level call await
+  await loadGlobalYoga();
 
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setCounter(previousCounter => previousCounter + 1);
-		}, 100);
+	const Counter = () => {
+		const [counter, setCounter] = useState(0);
 
-		return () => {
-			clearInterval(timer);
-		};
-	}, []);
+		useEffect(() => {
+			const timer = setInterval(() => {
+				setCounter(previousCounter => previousCounter + 1);
+			}, 100);
 
-	return <Text color="green">{counter} tests passed</Text>;
-};
+			return () => {
+				clearInterval(timer);
+			};
+		}, []);
 
-render(<Counter />);
+		return <Text color="green">{counter} tests passed</Text>;
+	};
+
+	render(<Counter />);
+}
+main();
+
 ```
 
 <img src="media/demo.svg" width="600">
