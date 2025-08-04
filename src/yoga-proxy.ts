@@ -24,13 +24,4 @@ export const loadGlobalYoga = async () => {
   return (globalThis as any).yoga_instance;
 };
 
-// check is run esm or cjs
-const isEsm = () => {
-  return typeof import.meta !== 'undefined';
-};
-
-if (isEsm()) {
-  await loadGlobalYoga();
-}
-
 export default YogaProxy;
