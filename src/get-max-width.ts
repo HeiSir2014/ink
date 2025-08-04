@@ -1,4 +1,5 @@
-import Yoga, {type Node as YogaNode} from 'yoga-layout';
+import type { Node as YogaNode } from './yoga-proxy.js';
+import Yoga from './yoga-proxy.js';
 
 const getMaxWidth = (yogaNode: YogaNode) => {
 	return (
