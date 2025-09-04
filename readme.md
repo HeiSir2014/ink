@@ -2,6 +2,28 @@
 
 ---
 
+<h1 align="center">Modified Ink for ESM/CommonJS Compatibility</h1>
+
+## 说明 / Description
+
+**中文说明：**
+这是一个修改版的 Ink 包，主要用于解决在打包工具将 ESM 模块转换为 CommonJS 时的兼容性问题。原版 Ink 使用了 Top-Level await 和动态 import，但 CommonJS 模块系统不支持这些特性，导致在某些构建环境下无法正常使用。
+
+本修改版本：
+- 移除了 Top-Level await 的使用
+- 优化了模块导入方式以支持 CommonJS 环境
+- 保持了所有原有功能和 API 兼容性
+- 适用于需要兼容 CommonJS 构建环境的项目
+
+**English Description:**
+This is a modified version of Ink designed to solve compatibility issues when bundling tools convert ESM modules to CommonJS. The original Ink uses Top-Level await and dynamic imports, which are not supported by the CommonJS module system, causing issues in certain build environments.
+
+This modified version:
+- Removes Top-Level await usage
+- Optimizes module import methods to support CommonJS environments
+- Maintains all original functionality and API compatibility
+- Suitable for projects that need to be compatible with CommonJS build environments
+
 <div align="center">
 	<br>
 	<br>
@@ -36,24 +58,26 @@ Only Ink's methods will be documented in this readme.
 	</p>
 </div>
 
-## Install
+## Install / 安装
 
-*** IMPORTANT ***
+### 为什么使用这个版本 / Why Use This Version
+
+如果你在使用打包工具（如 Webpack、Rollup、esbuild等）将 ESM 转换为 CommonJS 时遇到问题，或者你的项目需要在 CommonJS 环境中运行 Ink，请使用这个修改版本。
+
+If you encounter issues when using bundling tools (like Webpack, Rollup, esbuild, etc.) to convert ESM to CommonJS, or if your project needs to run Ink in a CommonJS environment, please use this modified version.
+
+### 安装方法 / Installation
 
 ```sh
 npm install ink@npm:@heisir/ink react
 ```
 
-add `overrides` to your project package.json
 
 ```json
 {
 	...
 	"dependencies": {
 		"ink": "npm:@heisir/ink@^6.1.2",
-	},
-	"overrides":{
-		"ink": "npm:@heisir/ink@^6.1.2"
 	}
 }
 ```
